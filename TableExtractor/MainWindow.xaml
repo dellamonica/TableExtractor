@@ -1,0 +1,36 @@
+﻿<Window x:Class="TableExtractor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Table extractor" WindowState="Maximized">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Label Content="# Columns: " VerticalAlignment="Top" />
+            <TextBox x:Name="ColumnCountBox" Width="40" Text="2" VerticalAlignment="Top" Margin="2" />
+            <Separator />
+            <Label Content="Regexes: " VerticalAlignment="Top" />
+            <TextBox x:Name="RegexesBox" AcceptsReturn="True" Margin="2" Text="" VerticalAlignment="Top" Width="180" />
+            <Separator />
+            <Button Click="OnExtractTables">
+                <TextBlock Text="Extract All" Margin="6 2" />
+            </Button>
+        </ToolBar>
+        <RichTextBox x:Name="DocumentBox">
+            <FlowDocument>
+                <Paragraph>
+                    1. Paste the document here;
+                </Paragraph>
+                <Paragraph>
+                    2. Adjust the number of columns above (all extracted tables must have this many columns).
+                </Paragraph>
+                <Paragraph>
+                    3. (Optional) Apply regular expressions to each column. 
+                    Only rows that match all expressions will be extracted. 
+                    An empty line matches everything.
+                </Paragraph>
+                <Paragraph>
+                    4. Click on "Extract All" and choose the destination CSV file to hold the extracted content.
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </DockPanel>
+</Window>
